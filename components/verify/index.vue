@@ -11,20 +11,20 @@
           <label class="control">Verification code</label>
           <div class="columns">
             <div class="column">
-              <input class="input" max="9" min="1" required type="number" maxlength="1" size="1" />
+              <input class="input" :max="9" :min="1" required type="text" :maxlength="1" :size="1" pattern="[0-9]{1}"/>
             </div>
             <div class="column">
-              <input class="input" max="9" min="1" required type="number" />
+              <input class="input" type="text" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" />
             </div>
             <div class="column">
-              <input class="input" max="9" min="1" required type="number" />
+              <input class="input" max="9" min="1" maxLength="1" size="1" required type="text" pattern="[0-9]{1}"/>
             </div>
             <div class="column">
-              <input class="input" max="9" min="1" required type="number" />
+              <input class="input" max="9" min="1" maxLength="1" size="1" required type="text" pattern="[0-9]{1}"/>
             </div>
           </div>
         </div>
-        <div style="margin-top:10%">
+        <div style="margin-top:10%; text-align:center">
           <circular-count-down-timer :initial-value="60" :steps="60" :size="100" :second-label="''"></circular-count-down-timer>
         </div>
         <nav class="level">

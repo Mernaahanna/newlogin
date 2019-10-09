@@ -8,13 +8,22 @@
             <br />
           </p>
         </div>
-        <div v-show="forget == true" class="box bg-warning">
+        <!-- <div v-show="forget == true" class="box bg-warning">
           <p>Typo?</p>
           <p>
             Or did you
             <a href="/forget-credential">forget your credentials</a>?
           </p>
-        </div>
+        </div>-->
+        <article class="message is-warning bg-warning">
+          <div class="message-body">
+            <p>Typo?</p>
+          <p>
+            Or did you
+            <a href="/forget-credential">forget your credentials?</a>
+          </p>
+          </div>
+        </article>
         <div class="field">
           <label class="control">Username</label>
           <div class="control" v-if="form.email.length == 0">
@@ -96,9 +105,9 @@ export default {
 </script>
 <style>
 .bg-warning {
-  background-color: #ecd7888c;
-  border: 1px solid #e7abab;
-  padding: 2.7%;
+  background-color: #ecd7888c !important;
+  /* border: 1px solid #e7abab;
+  padding: 2.7%; */
   font-size: 85%;
 }
 .bg-warning p {
