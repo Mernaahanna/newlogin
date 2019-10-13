@@ -9,18 +9,55 @@
         </div>
         <div class="field">
           <label class="control">Verification code</label>
-          <div class="columns">
+          <div class="columns" @click="nextInput()">
             <div class="column">
-              <input class="input" :max="9" :min="1" required type="text" :maxlength="1" :size="1" pattern="[0-9]{1}"/>
+              <input
+                class="input"
+                id="a"
+                required
+                type="text"
+                maxlength="1"
+                :size="1"
+                pattern="[0-9]{1}"
+              />
             </div>
             <div class="column">
-              <input class="input" type="text" maxLength="1" size="1" min="0" max="9" pattern="[0-9]{1}" />
+              <input
+                class="input"
+                id="b"
+                type="text"
+                maxlength="1"
+                size="1"
+                min="0"
+                max="9"
+                pattern="[0-9]{1}"
+              />
             </div>
             <div class="column">
-              <input class="input" max="9" min="1" maxLength="1" size="1" required type="text" pattern="[0-9]{1}"/>
+              <input
+                class="input"
+                id="c"
+                max="9"
+                min="1"
+                maxlength="1"
+                size="1"
+                required
+                type="text"
+                pattern="[0-9]{1}"
+              />
             </div>
             <div class="column">
-              <input class="input" max="9" min="1" maxLength="1" size="1" required type="text" pattern="[0-9]{1}"/>
+              <input
+                class="input"
+                id="d"
+                max="9"
+                min="1"
+                maxlength="1"
+                size="1"
+                required
+                type="text"
+                pattern="[0-9]{1}"
+              />
             </div>
           </div>
         </div>
@@ -29,7 +66,11 @@
         </div>
         <nav class="level">
           <div class="level-item">
-            <a href="/new_password" class="button is-success" style="margin-top:10%; color:black">Verify</a>
+            <a
+              href="/new_password"
+              class="button is-success"
+              style="margin-top:10%; color:black"
+            >Verify</a>
           </div>
         </nav>
       </div>
@@ -50,6 +91,36 @@ export default {
       }
     };
   },
-  methods: {}
+  methods: {
+    nextInput() {
+      var a = document.getElementById("a"),
+        b = document.getElementById("b"),
+        c = document.getElementById("c"),
+        d = document.getElementById("d");
+
+      a.onkeyup = function() {
+        if (
+          this.value.length === parseInt(this.attributes["maxlength"].value)
+        ) {
+          b.focus();
+        }
+      };
+
+      b.onkeyup = function() {
+        if (
+          this.value.length === parseInt(this.attributes["maxlength"].value)
+        ) {
+          c.focus();
+        }
+      };
+      c.onkeyup = function() {
+        if (
+          this.value.length === parseInt(this.attributes["maxlength"].value)
+        ) {
+          d.focus();
+        }
+      };
+    }
+  }
 };
 </script>

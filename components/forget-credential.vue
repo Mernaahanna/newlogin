@@ -3,12 +3,12 @@
     <article class="media">
       <div class="media-content">
         <div class="content">
-            <h3>What was your email again?</h3>
-            <br />
-            <p class="has-text-grey">
-              We will send you a verification code to this email address with which
-              you can create a new password.
-            </p>
+          <h3>What was your email again?</h3>
+          <br />
+          <p class="has-text-grey">
+            We will send you a verification code to this email address with which
+            you can create a new password.
+          </p>
         </div>
         <div class="field">
           <label class="control">Email</label>
@@ -17,9 +17,9 @@
           </div>
         </div>
         <nav class="level">
-            <div class="level-item">
-              <a href="/verify" class="button is-info" style="margin-top:20%">Send verification code</a>
-            </div>
+          <div class="level-item">
+            <a href="/verify" class="button is-info" style="margin-top:20%">Send verification code</a>
+          </div>
         </nav>
       </div>
     </article>
@@ -32,12 +32,9 @@ export default {
   data() {
     return {
       form: {
-        email: "",
-      },
+        email: ""
+      }
     };
-  },
-  methods: {
-
   }
 };
 </script>

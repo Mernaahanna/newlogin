@@ -8,12 +8,17 @@
           <p class="has-text-grey">Wow, great username!</p>
         </div>
         <!-- lock -->
-        <div class="padlock" v-if="form.password.length == 0"></div>
-        <div class="warningpadlock" v-else-if="form.password.length <=5 "></div>
-        <div class="successpadlock unlock" v-else-if="form.password.length >5 ">
-          <div class="keyhole checkmark"></div>
+        <div>
+          <style>
+            :root {
+              --top: {{ Top+ '%'}};
+              --bg-color: {{ Color }}
+            }
+          </style>
+          <div class="padlock">
+            <div class="keyhole checkmark" v-show="success"></div>
+          </div>
         </div>
-
         <!-- password -->
         <div class="field">
           <label class="control">New Password</label>
@@ -22,6 +27,7 @@
               :class="form.password.length >5? 'input is-success' : 'input'"
               type="password"
               v-model="form.password"
+              @input="checkExist($event)"
             />
           </div>
         </div>
@@ -60,17 +66,36 @@ import Vue from "vue";
 import CircularCountDownTimer from "vue-circular-count-down-timer";
 Vue.use(CircularCountDownTimer);
 export default {
-  name: "login",
-  layout: "login",
   data() {
     return {
       form: {
         re_password: "",
         password: ""
-      }
+      },
+      Top: -73,
+      Color: "red",
+      success: false
     };
   },
-  methods: {}
+  methods: {
+    checkExist(event) {
+      if (event.target.value.length <= 5 && event.target.value.length != 0) {
+        let count = event.target.value.length;
+        let newtop = -73;
+        this.success = false;
+        this.Top = newtop + 3 * count;
+        this.Color = "rgb(236, 187, 141)";
+      } else if (event.target.value.length === 0) {
+        this.Top = -73;
+        this.Color = "red";
+        this.success = false;
+      } else {
+        this.Top = this.Top;
+        this.Color = "rgb(125, 223, 166)";
+        this.success = true;
+      }
+    }
+  }
 };
 </script>
 <style scoped>
@@ -78,116 +103,27 @@ export default {
   position: relative;
   width: 91px;
   height: 70px;
-  background-image: linear-gradient(to bottom right, red 30%, red 8%);
+  background-image: linear-gradient(
+    to bottom right,
+    var(--bg-color) 30%,
+    var(--bg-color) 8%
+  );
   border-radius: 16px 20px 20px 20px;
   cursor: pointer;
   margin-top: 27% !important;
   margin-left: 30%;
   margin-bottom: 10%;
 }
-
-.successpadlock.unlock::before {
-  transform: translate(1%, 14%);
-}
-
-.padlock.unlock::after {
-  transform: translate(-50%, calc(-50% - 15px)) rotate(90deg);
-}
-
 .padlock::before {
   content: "";
   position: absolute;
   left: 12%;
-  top: -73%;
+  color: var(--bg-color);
+  top: var(--top);
   width: 63px;
   height: 79px;
   border-radius: 38px;
-  border: 13px solid red;
-  clip-path: polygon(
-    0% 0%,
-    100% 0%,
-    100% 65%,
-    50% 65%,
-    50% 57%,
-    22% 57%,
-    22% 51%,
-    15% 51%,
-    14% 52%,
-    14% 53%,
-    15% 54%,
-    22% 54%,
-    18% 57%,
-    2% 57%,
-    0% 55%
-  );
-}
-
-.warningpadlock {
-  position: relative;
-  width: 91px;
-  height: 70px;
-  background-image: linear-gradient(
-    to bottom right,
-    rgb(236, 187, 141) 30%,
-    rgb(236, 187, 141) 8%
-  );
-  border-radius: 16px 20px 20px 20px;
-  cursor: pointer;
-  margin-top: 27% !important;
-  margin-left: 30%;
-  margin-bottom: 10%;
-}
-.warningpadlock::before {
-  content: "";
-  position: absolute;
-  left: 12%;
-  top: -73%;
-  width: 63px;
-  height: 79px;
-  border-radius: 38px;
-  border: 13px solid rgb(236, 187, 141);
-  clip-path: polygon(
-    0% 0%,
-    100% 0%,
-    100% 65%,
-    50% 65%,
-    50% 57%,
-    22% 57%,
-    22% 51%,
-    15% 51%,
-    14% 52%,
-    14% 53%,
-    15% 54%,
-    22% 54%,
-    18% 57%,
-    2% 57%,
-    0% 55%
-  );
-}
-.successpadlock {
-  position: relative;
-  width: 91px;
-  height: 70px;
-  background-image: linear-gradient(
-    to bottom right,
-    rgb(125, 223, 166) 30%,
-    rgb(125, 223, 166) 8%
-  );
-  border-radius: 16px 20px 20px 20px;
-  cursor: pointer;
-  margin-top: 27% !important;
-  margin-left: 30%;
-  margin-bottom: 10%;
-}
-.successpadlock::before {
-  content: "";
-  position: absolute;
-  left: 12%;
-  top: -73%;
-  width: 63px;
-  height: 79px;
-  border-radius: 38px;
-  border: 13px solid rgb(125, 223, 166);
+  border: 13px solid var(--bg-color);
   clip-path: polygon(
     0% 0%,
     100% 0%,

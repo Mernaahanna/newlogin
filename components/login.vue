@@ -8,20 +8,13 @@
             <br />
           </p>
         </div>
-        <!-- <div v-show="forget == true" class="box bg-warning">
-          <p>Typo?</p>
-          <p>
-            Or did you
-            <a href="/forget-credential">forget your credentials</a>?
-          </p>
-        </div>-->
-        <article class="message is-warning bg-warning">
+        <article class="message is-warning bg-warning" v-if="forget==true">
           <div class="message-body">
             <p>Typo?</p>
-          <p>
-            Or did you
-            <a href="/forget-credential">forget your credentials?</a>
-          </p>
+            <p>
+              Or did you
+              <a href="/forget-credential">forget your credentials?</a>
+            </p>
           </div>
         </article>
         <div class="field">
@@ -95,7 +88,6 @@ export default {
       if (this.form.email == "sss@sss.sss" && this.form.password == "123456") {
         console.log("login");
         this.forget = false;
-        // this.$router.push('/backend')
       } else {
         this.forget = true;
       }
@@ -106,8 +98,6 @@ export default {
 <style>
 .bg-warning {
   background-color: #ecd7888c !important;
-  /* border: 1px solid #e7abab;
-  padding: 2.7%; */
   font-size: 85%;
 }
 .bg-warning p {
