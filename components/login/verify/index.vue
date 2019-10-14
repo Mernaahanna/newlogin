@@ -1,5 +1,5 @@
 <template>
-  <div class="box" style="width:25%">
+  <div class="box is-centered">
     <article class="media">
       <div class="media-content">
         <div class="content">
@@ -7,6 +7,7 @@
           <br />
           <p class="has-text-grey">Please fill it in below.</p>
         </div>
+        <!-- verification input number -->
         <div class="field">
           <label class="control">Verification code</label>
           <div class="columns" @click="nextInput()">
@@ -61,13 +62,14 @@
             </div>
           </div>
         </div>
+        <!-- timer -->
         <div style="margin-top:10%; text-align:center">
           <circular-count-down-timer :initial-value="60" :steps="60" :size="100" :second-label="''"></circular-count-down-timer>
         </div>
         <nav class="level">
           <div class="level-item">
             <a
-              href="/new_password"
+              href="/login/new_password"
               class="button is-success"
               style="margin-top:10%; color:black"
             >Verify</a>
@@ -82,8 +84,6 @@ import Vue from "vue";
 import CircularCountDownTimer from "vue-circular-count-down-timer";
 Vue.use(CircularCountDownTimer);
 export default {
-  name: "login",
-  layout: "login",
   data() {
     return {
       form: {
@@ -93,6 +93,7 @@ export default {
   },
   methods: {
     nextInput() {
+      // focus in the next input
       var a = document.getElementById("a"),
         b = document.getElementById("b"),
         c = document.getElementById("c"),

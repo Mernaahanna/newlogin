@@ -1,5 +1,5 @@
 <template>
-  <div class="box">
+  <div class="box is-centered">
     <article class="media">
       <div class="media-content">
         <div class="title is-2">
@@ -8,26 +8,30 @@
             <br />
           </p>
         </div>
-        <article class="message is-warning bg-warning" v-if="forget==true">
+        <!-- message forget -->
+        <article class="message is-warning is-small" v-if="forget==true">
           <div class="message-body">
             <p>Typo?</p>
             <p>
               Or did you
-              <a href="/forget-credential">forget your credentials?</a>
+              <a href="/login/forget-credential">forget your credentials?</a>
             </p>
           </div>
         </article>
+        <!-- username -->
         <div class="field">
           <label class="control">Username</label>
           <div class="control" v-if="form.email.length == 0">
             <input class="input" type="text" v-model="form.email" />
           </div>
-          <div class="control has-icons-right" v-else-if="form.email == 'sss@sss.sss'">
-            <input class="input is-success" type="text" v-model="form.email" />
+          <!-- success -->
+          <div class="control has-icons-right" v-else-if="form.email == 'sss@sss.sss'" >
+            <input class="input is-success" type="text" v-model="form.email" @change="forget = false"/>
             <span class="icon is-small is-right">
               <font-awesome-icon :icon="['fas', 'check']" />
             </span>
           </div>
+          <!-- danger -->
           <div class="control has-icons-right" v-else>
             <input class="input is-danger" type="text" v-model="form.email" />
             <span class="icon is-small is-right">
@@ -35,17 +39,20 @@
             </span>
           </div>
         </div>
+        <!-- password -->
         <div class="field">
           <label class="control">Password</label>
           <div class="control" v-if="form.password == 0">
             <input class="input" type="password" v-model="form.password" />
           </div>
+          <!-- success -->
           <div class="control has-icons-right" v-else-if="form.password == '123456'">
-            <input class="input is-success" type="password" v-model="form.password" />
+            <input class="input is-success" type="password" v-model="form.password" @change="forget = false"/>
             <span class="icon is-small is-right">
               <font-awesome-icon :icon="['fas', 'check']" />
             </span>
           </div>
+          <!-- danger -->
           <div class="control has-icons-right" v-else>
             <input class="input is-danger" type="password" v-model="form.password" />
             <span class="icon is-small is-right">
@@ -53,9 +60,10 @@
             </span>
           </div>
         </div>
+        <!-- forget password -->
         <div class="content">
           <p>
-            <a class="has-text-grey" href="/forget-credential">I forget my username or password</a>
+            <a class="has-text-grey" href="/login/forget-credential">I forget my username or password</a>
           </p>
         </div>
         <nav class="level">
@@ -95,12 +103,3 @@ export default {
   }
 };
 </script>
-<style>
-.bg-warning {
-  background-color: #ecd7888c !important;
-  font-size: 85%;
-}
-.bg-warning p {
-  color: #d17646;
-}
-</style>

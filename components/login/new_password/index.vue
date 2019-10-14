@@ -1,5 +1,5 @@
 <template>
-  <div class="box" style="width:25%">
+  <div class="box">
     <article class="media">
       <div class="media-content">
         <div class="content">
@@ -31,6 +31,7 @@
             />
           </div>
         </div>
+        <!-- repeat password -->
         <div class="field">
           <label class="control">Repeat Password</label>
           <div class="control has-icons-right" v-if="form.re_password.length == 0">
@@ -79,6 +80,7 @@ export default {
   },
   methods: {
     checkExist(event) {
+      // change status of padlock according to length of password
       if (event.target.value.length <= 5 && event.target.value.length != 0) {
         let count = event.target.value.length;
         let newtop = -73;
