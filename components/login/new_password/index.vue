@@ -1,7 +1,7 @@
 <template>
-  <div class="box">
-    <article class="media">
-      <div class="media-content">
+ <div class="columns is-centered">
+    <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+      <div class="box">
         <div class="content">
           <h3>Hi , Username</h3>
           <br />
@@ -53,13 +53,11 @@
             </span>
           </div>
         </div>
-        <nav class="level">
-          <div class="level-item">
-            <a href="/" class="button is-success" style="margin-top:10%">Save</a>
+          <div class="has-margin-top-30 has-text-centered">
+            <a href="/" class="button is-success">Save</a>
           </div>
-        </nav>
       </div>
-    </article>
+    </div>
   </div>
 </template>
 <script>

@@ -1,7 +1,7 @@
 <template>
-  <div class="box is-centered">
-    <article class="media">
-      <div class="media-content">
+  <div class="columns is-centered">
+    <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+      <div class="box">
         <div class="title is-2">
           <p>
             <strong>Welcome</strong>
@@ -25,8 +25,13 @@
             <input class="input" type="text" v-model="form.email" />
           </div>
           <!-- success -->
-          <div class="control has-icons-right" v-else-if="form.email == 'sss@sss.sss'" >
-            <input class="input is-success" type="text" v-model="form.email" @change="forget = false"/>
+          <div class="control has-icons-right" v-else-if="form.email == 'sss@sss.sss'">
+            <input
+              class="input is-success"
+              type="text"
+              v-model="form.email"
+              @change="forget = false"
+            />
             <span class="icon is-small is-right">
               <font-awesome-icon :icon="['fas', 'check']" />
             </span>
@@ -47,7 +52,12 @@
           </div>
           <!-- success -->
           <div class="control has-icons-right" v-else-if="form.password == '123456'">
-            <input class="input is-success" type="password" v-model="form.password" @change="forget = false"/>
+            <input
+              class="input is-success"
+              type="password"
+              v-model="form.password"
+              @change="forget = false"
+            />
             <span class="icon is-small is-right">
               <font-awesome-icon :icon="['fas', 'check']" />
             </span>
@@ -63,7 +73,10 @@
         <!-- forget password -->
         <div class="content">
           <p>
-            <a class="has-text-grey" href="/login/forget-credential">I forget my username or password</a>
+            <a
+              class="has-text-grey"
+              href="/login/forget-credential"
+            >I forget my username or password</a>
           </p>
         </div>
         <nav class="level">
@@ -75,7 +88,7 @@
           </div>
         </nav>
       </div>
-    </article>
+    </div>
   </div>
 </template>
 <script>

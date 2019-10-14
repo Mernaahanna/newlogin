@@ -1,15 +1,16 @@
 <template>
-  <div class="container is-flex" style="min-height: 100vh; justify-content: center;">
-    <div class="columns is-centered is-vcentered">
-      <div class="column is-narrow has-text-centered">
+  <section class="level has-page-height" >
+    <div class="level-item">
+      <div class="container">
         <Login />
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
 import Login from "~/components/login";
+import 'bulma-helpers/css/bulma-helpers.min.css' 
 
 export default {
   components: {

@@ -1,7 +1,7 @@
 <template>
-  <div class="box is-centered">
-    <article class="media">
-      <div class="media-content">
+  <div class="columns is-centered">
+    <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+      <div class="box">
         <div class="content">
           <h3>We send the code to your email</h3>
           <br />
@@ -63,20 +63,14 @@
           </div>
         </div>
         <!-- timer -->
-        <div style="margin-top:10%; text-align:center">
+        <div class="has-text-centered has-margin-top-30">
           <circular-count-down-timer :initial-value="60" :steps="60" :size="100" :second-label="''"></circular-count-down-timer>
         </div>
-        <nav class="level">
-          <div class="level-item">
-            <a
-              href="/login/new_password"
-              class="button is-success"
-              style="margin-top:10%; color:black"
-            >Verify</a>
-          </div>
-        </nav>
+        <div class="has-text-centered has-margin-top-10">
+          <a href="/login/new_password" class="button is-success">Verify</a>
+        </div>
       </div>
-    </article>
+    </div>
   </div>
 </template>
 <script>
