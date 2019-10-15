@@ -107,8 +107,8 @@ export default {
   methods: {
     login() {
       if (this.form.email == "sss@sss.sss" && this.form.password == "123456") {
-        console.log("login");
         this.forget = false;
+         this.$router.push('/backend')
       } else {
         this.forget = true;
       }

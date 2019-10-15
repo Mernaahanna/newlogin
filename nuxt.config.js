@@ -17,7 +17,7 @@ export default {
   },
   router: {
     linkActiveClass: 'active'
-},
+  },
   /*
   ** Customize the progress-bar color
   */
@@ -26,6 +26,7 @@ export default {
   ** Global CSS
   */
   css: [
+    '~assets/scss/app.scss',
   ],
   /*
   ** Plugins to load before mounting the App
@@ -43,6 +44,32 @@ export default {
   modules: [
     // Doc: https://github.com/nuxt-community/modules/tree/master/packages/bulma
     '@nuxtjs/bulma',
+    [
+      'nuxt-fontawesome', { //https://github.com/FortAwesome/vue-fontawesome
+        imports: [
+          {
+            set: '@fortawesome/pro-solid-svg-icons',
+            icons: ['fas']
+          },
+          {
+            set: '@fortawesome/pro-regular-svg-icons',
+            icons: ['far']
+          },
+          {
+            set: '@fortawesome/pro-light-svg-icons',
+            icons: ['fal']
+          },
+          {
+            set: '@fortawesome/pro-duotone-svg-icons',
+            icons: ['fad']
+          },
+          {
+            set: '@fortawesome/free-brands-svg-icons',
+            icons: ['fab']
+          }
+        ]
+      }
+    ]
   ],
   /*
   ** Build configuration
@@ -58,7 +85,7 @@ export default {
     /*
     ** You can extend webpack config here
     */
-    extend (config, ctx) {
+    extend(config, ctx) {
     }
   }
 }
